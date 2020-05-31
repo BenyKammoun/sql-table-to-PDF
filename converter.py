@@ -21,3 +21,12 @@ except mysql.connector.Error as err:
         print(err)
 else:
     cursor = connection.cursor()
+
+# Retrieve workers-salaries data
+cursor.execute( '''
+    select _id, firstname, lastname, salarymonth, sumbefor, sumafter 
+    from workers, salaries 
+    where workers._id = salaries.workerid
+    order by _id asc;
+''')
+rows = cursor.fetchall()
