@@ -1,5 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
+from weasyprint import HTML, CSS
+from weasyprint.fonts import FontConfiguration
 
 # Connection to Mysql database
 config = {
