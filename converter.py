@@ -68,3 +68,16 @@ def generateReport(path, tuples):
     renderedHtml.write_pdf(
         path, stylesheets=[css],
         font_config=font_config)
+
+# iterating query result and generating reports
+if rows:
+    current = str(rows[0][0])
+    tuples = list()
+    for index in range(len(rows)):
+        tuples.append(rows[index])
+        if (index == len(rows) - 1) or ((index + 1 < len(rows)) and (rows[index + 1][0] != current)):
+            path = './' + tuples[0][1] + '.pdf'
+            generateReport(path, tuples)
+            if index + 1 <= len(rows) - 1:
+                current = rows[index + 1][0]
+                tuples = list()
