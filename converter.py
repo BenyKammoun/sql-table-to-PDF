@@ -30,3 +30,18 @@ cursor.execute( '''
     order by _id asc;
 ''')
 rows = cursor.fetchall()
+
+# HTML template
+headerHtml = '''
+        <table>
+            <tr>
+                <th>מס' אישי</th>
+                <th>שם פרטי</th>
+                <th>שם משפחה</th>
+                <th>חודש שכר</th>
+                <th>סכום לפני הסכם</th>
+                <th>סכום אחרי הסכם</th>
+            </tr>
+            <tr>
+'''
+footerHtml = "</table>"
