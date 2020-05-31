@@ -81,3 +81,9 @@ if rows:
             if index + 1 <= len(rows) - 1:
                 current = rows[index + 1][0]
                 tuples = list()
+
+# Cleanup
+connection.commit()
+cursor.close()
+connection.close()
+print("Done ...")
