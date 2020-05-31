@@ -45,3 +45,24 @@ headerHtml = '''
             <tr>
 '''
 footerHtml = "</table>"
+
+# method that generates a PDf report of worker's infos.
+def generateReport(path, tuples):
+    html = headerHtml
+    for t in tuples:
+        for elem in t:
+            html += "<td>" + str(elem) + "</td>"
+        html += "</tr><br>"
+    html += footerHtml
+    font_config = FontConfiguration()
+    renderedHtml = HTML(string=html)
+    css = CSS(string='''
+                    table, tr, td, th {
+                        direction: rtl;
+                        border: 1px solid black;
+                        font-family: david;
+                    }
+                ''', font_config=font_config)
+    renderedHtml.write_pdf(
+        path, stylesheets=[css],
+        font_config=font_config)
