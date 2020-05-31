@@ -5,10 +5,10 @@ from weasyprint.fonts import FontConfiguration
 
 # Connection to Mysql database
 config = {
-    'host':'workersdemo.mysql.database.azure.com',
-    'user':'myadmin@workersdemo',
-    'password':'365B&563',
-    'database':'quickstartdb'
+    'host':'<your host address>',
+    'user':'<your user>',
+    'password':'<user password>',
+    'database':'<your database name>'
 }
 
 try:
